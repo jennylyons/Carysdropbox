@@ -1,0 +1,19 @@
+{
+  "name": "carysdropbox",
+  "version": "1.0.0",
+  "description": "HIIIIII",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennylyons/Carysdropbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennylyons/Carysdropbox/issues"
+  },
+  "homepage": "https://github.com/jennylyons/Carysdropbox#readme"
+}
