@@ -1,0 +1,27 @@
+[{
+  "duration": 1,
+  "time": 1,
+  "day": "Tuesday",
+  "energy": "Low",
+  "cost": "50",
+  "progression": "umm",
+  "multiplePartners": true
+},
+{
+  "duration": 1,
+  "time": 1,
+  "day": "Tuesday",
+  "energy": "Low",
+  "cost": "50",
+  "progression": "wAIT",
+  "multiplePartners": true
+},
+{
+  "duration": 1,
+  "time": 1,
+  "day": "Tuesday",
+  "energy": "Low",
+  "cost": "50",
+  "progression": "WHAT",
+  "multiplePartners": true
+}]
