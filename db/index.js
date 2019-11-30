@@ -5,6 +5,8 @@ const sampleTasks = require('./sampleTasks.json');
 const dao = new AppDAO('./db/database.db');
 const taskRepo = new TaskRepository(dao);
 
+taskRepo.createTable()
+
 module.exports = {
   taskRepo,
 }

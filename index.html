@@ -17,7 +17,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,73 +28,65 @@
 </head>
 
 <body>
-    <nav style="display: flex; justify-content: space-between;" class="navbar navbar-expand-lg navbar-light bg-light">
-        <div onclick="hideForm();" style="text-align: center; flex-grow: 1;">
-          SOMETHING
-        </div>
-        <div style="text-align: center; flex-grow: 1;">
-          SOMETHING ELSE
-        </div>
-      </nav>
+    <ul class="nav nav-tabs">
+        <li class="nav-item" onclick="showForm('get-form')">
+          <a id="get-form-tab" class="nav-link active" href="#">Get Stuff</a>
+        </li>
+        <li class="nav-item" onclick="showForm('submit-form')">
+          <a id="submit-form-tab" class="nav-link" href="#">Submit Stuff</a>
+        </li>
+      </ul>
+
+    <div id="taskArea" style="margin: 3rem 25rem; background-color: #5689bc; border: 2px solid black; border-radius: 3px; min-height: 3rem;">
+
+    </div>
 
       
-  <form id="write-form" style="padding: 0 25rem;" action="">
+  <!-- <form id="get-form" style="padding: 0 25rem;" action="">
     <h1 style="text-align: center; margin: 0 auto;">
-      Write Form
+      Get Form
     </h1>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Duration</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label for="exampleFormControlSelect1">Duration(in hours)</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="e.g. 2">
+      </div>
     </div>
 
     <div class="form-group">
       <label for="exampleFormControlSelect1">Time</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"/>
+            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+            </div>
+        </div>
     </div>
     
     <div class="form-group">
       <label for="exampleFormControlSelect1">Day</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+          <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
+          <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="exampleFormControlSelect1">Energy</label>
       <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Cost</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label for="exampleFormControlSelect1">Cost(in dollars)</label>
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="e.g. 2">
+      </div>
     </div>
 
     <div class="form-group">
@@ -107,21 +100,18 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Multiple Partners?</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          Multiple Partners
+        </label>
     </div>
 
     <div style="display: flex; justify-content: flex-end;">
-      <button type="button" class="btn btn-primary btn-lg">Large button</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="yo(this)">Get Stuff</button>
     </div>
-  </form>
+  </form> -->
+
 
   <form id="submit-form" style="padding: 0 25rem;" action="">
     <h1 style="text-align: center; margin: 0 auto;">
@@ -129,62 +119,57 @@
     </h1>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Duration</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label for="name">Name</label>
+      <div class="input-group mb-3">
+        <input id="name" type="text" class="form-control">
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Time</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label for="duration">Duration(in hours)</label>
+      <div class="input-group mb-3">
+        <input id="duration" type="text" class="form-control" placeholder="e.g. 2">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="time">Time</label>
+        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+            <input id="time" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"/>
+            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+            </div>
+        </div>
     </div>
     
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Day</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label for="day">Day</label>
+      <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+          <input id="day" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
+          <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Energy</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <label for="energy">Energy</label>
+      <select id="energy" class="form-control">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Cost</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label for="cost">Cost(in dollars)</label>
+      <div class="input-group mb-3">
+          <input id="cost" type="text" class="form-control" placeholder="e.g. 2">
+      </div>
     </div>
 
     <div class="form-group">
       <label for="exampleFormControlSelect1">Progression</label>
-      <select class="form-control" id="exampleFormControlSelect1">
+      <select id="progression" class="form-control">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -193,27 +178,39 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Multiple Partners?</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+    <div class="form-check">
+        <input id="multiplePartners" class="form-check-input" type="checkbox" value="">
+        <label class="form-check-label" for="multiplePartners">
+          Multiple Partners
+        </label>
     </div>
 
     <div style="display: flex; justify-content: flex-end;">
-      <button type="button" class="btn btn-primary btn-lg">Large button</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="submitTask(getFields());">Submit Task</button>
     </div>
   </form>
 
   
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
   <script src="./js/form.js" ></script>
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker3').datetimepicker({
+            format: 'LT'
+        });
+    });
+    $(function () {
+        $('#datetimepicker4').datetimepicker({
+            format: 'L'
+        });
+    });
+
+    showForm('get-form')
+    renderTasks();
+</script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 [{
+  "name": "Fun",
   "duration": 1,
   "time": 1,
   "day": "Tuesday",
@@ -8,6 +9,7 @@
   "multiplePartners": true
 },
 {
+  "name": "More Fun",
   "duration": 1,
   "time": 1,
   "day": "Tuesday",
@@ -17,6 +19,7 @@
   "multiplePartners": true
 },
 {
+  "name": "Even More Fun",
   "duration": 1,
   "time": 1,
   "day": "Tuesday",

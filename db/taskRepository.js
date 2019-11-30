@@ -9,6 +9,7 @@ class TaskRepository {
     const sql = `
       CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name VARCHAR(60),
         duration INTEGER,
         time VARCHAR(30),
         day VARCHAR(30),
@@ -20,18 +21,19 @@ class TaskRepository {
     return this.dao.run(sql);
   }
 
-  create(duration, time, day, energy, cost, progression, multiplePartners) {
+  create(name, duration, time, day, energy, cost, progression, multiplePartners) {
     return this.dao.run(
-      `INSERT INTO tasks (duration, time, day, energy, cost, progression, multiple_partners)
-        VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [duration, time, day, energy, cost, progression, multiplePartners],
+      `INSERT INTO tasks (name, duration, time, day, energy, cost, progression, multiple_partners)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [name, duration, time, day, energy, cost, progression, multiplePartners],
     );
   }
 
-  update(duration, time, day, energy, cost, progression, multiplePartners, id) {
+  update(name, duration, time, day, energy, cost, progression, multiplePartners, id) {
     return this.dao.run(
       `UPDATE tasks
-      SET duration = ?,
+      SET name = ?,
+        duration = ?,
         time = ?,
         day = ?,
         energy = ?,
@@ -39,7 +41,7 @@ class TaskRepository {
         progression = ?,
         multiple_partners = ?
       WHERE id = ?`,
-      [duration, time, day, energy, cost, progression, multiplePartners, id],
+      [name, duration, time, day, energy, cost, progression, multiplePartners, id],
     );
   }
 
