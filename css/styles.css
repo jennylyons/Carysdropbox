@@ -1,0 +1,45 @@
+.table-wrapper {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.content-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border-radius: 3px;
+  table-layout: fixed;
+}
+
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;/* even columns width , fix width of table too*/
+}
+
+tbody {
+  width: auto;
+  margin: 0 auto;
+  max-height: 300px;
+  display: block;
+  overflow-y: scroll;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+input, select {
+  max-width: 500px;
+}

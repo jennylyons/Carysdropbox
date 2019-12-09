@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/flex.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,92 +30,198 @@
 </head>
 
 <body>
-    <ul class="nav nav-tabs">
-        <li class="nav-item" onclick="showForm('get-form')">
-          <a id="get-form-tab" class="nav-link active" href="#">Get Stuff</a>
-        </li>
-        <li class="nav-item" onclick="showForm('submit-form')">
-          <a id="submit-form-tab" class="nav-link" href="#">Submit Stuff</a>
-        </li>
-      </ul>
+  <ul class="nav nav-tabs">
+      <li class="nav-item" onclick="showForm('get-form')">
+        <a id="get-form-tab" class="nav-link active" href="#">Get Stuff</a>
+      </li>
+      <li class="nav-item" onclick="showForm('submit-form')">
+        <a id="submit-form-tab" class="nav-link" href="#">Submit Stuff</a>
+      </li>
+    </ul>
 
-    <div id="taskArea" style="margin: 3rem 25rem; background-color: #5689bc; border: 2px solid black; border-radius: 3px; min-height: 3rem;">
+  <div class="container content-wrapper">
+    <div class="table-wrapper">
+      <table id="taskArea">
+        <thead>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Duration
+            </th>
+            <th>
+              Time
+            </th>
+            <th>
+              Day
+            </th>
+            <th>
+              Energy
+            </th>
+            <th>
+              Cost
+            </th>
+            <th>
+              Progression
+            </th>
+            <th>
+              Multiple Partners
+            </th>
+          </tr>
+        </thead>
+        <tbody id="taskAreaBody">
+  
+        </tbody>
+      </table>
 
+      <div id="numResultsMessage">
+      </div>
+
+      <div class="layout-row layout-align-end-center">
+        <button type="button" style" class="btn btn-primary btn-dark mt-3" onclick="clearTableRows(); renderRandomTask();">Get Random Item</button>
+      </div>
     </div>
 
       
-  <!-- <form id="get-form" style="padding: 0 25rem;" action="">
-    <h1 style="text-align: center; margin: 0 auto;">
-      Get Form
-    </h1>
+  <form id="get-form" action="">
+    <h3 style="text-align:left; margin-bottom: 2rem;">
+      Filters
+    </h3>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Duration(in hours)</label>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="e.g. 2">
+      <button class="btn btn-primary btn-sm" onclick="toggleHideElement('nameBox')">Name</button>
+
+      <div id="nameBox" style="display: none;">
+        <label for="exampleFormControlSelect1">Name</label>
+        <div class="input-group mb-3">
+          <input id="nameFilter" type="text" class="form-control">
+        </div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Time</label>
-        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"/>
-            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-            </div>
+      <button class="btn btn-primary btn-sm" onclick="toggleHideElement('durationBox')">Duration</button>
+
+      <div id="durationBox" style="display: none;">
+        <label for="exampleFormControlSelect1">Duration(in hours)</label>
+        <div class="input-group mb-3">
+          <input id="durationFilter" type="text" class="form-control" placeholder="e.g. 2">
         </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary btn-sm" onclick="toggleHideElement('timeBox')">Time</button>
+
+      <div id="timeBox" style="display: none;">
+        <label for="exampleFormControlSelect1">Time</label>
+        <div class="layout-row layout-align-space-between-center">
+          <div class="input-group date" id="startTime" data-target-input="nearest">
+              <input id="startTimeFilter" type="text" class="form-control datetimepicker-input" data-target="#startTime"/>
+              <div class="input-group-append" data-target="#startTime" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+              </div>
+          </div>
+
+          <div class="p-2">to</div>
+
+          <div class="input-group date" id="endTime" data-target-input="nearest">
+              <input id="endTimeFilter" type="text" class="form-control datetimepicker-input" data-target="#endTime"/>
+              <div class="input-group-append" data-target="#endTime" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
     
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Day</label>
-      <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-          <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
-          <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      <button class="btn btn-primary btn-sm" onclick="toggleHideElement('dayBox')">Day</button>
+
+      <div id="dayBox" style="display: none;">
+        <label for="startDate">Day</label>
+        
+        <div class="layout-row layout-align-space-between-center">
+          <div class="input-group date" id="startDate" data-target-input="nearest">
+              <input id="startDateFilter" type="text" class="form-control datetimepicker-input" data-target="#startDate"/>
+              <div class="input-group-append" data-target="#startDate" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+              </div>
           </div>
+        
+          <div class="p-2">to</div>
+        
+          <div class="input-group date" id="endDate" data-target-input="nearest">
+              <input id="endDateFilter"type="text" class="form-control datetimepicker-input" data-target="#endDate"/>
+              <div class="input-group-append" data-target="#endDate" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Energy</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Cost(in dollars)</label>
-      <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="e.g. 2">
+      <button class="btn btn-primary btn-sm" onclick="toggleHideElement('energyBox')">Energy</button>
+
+      <div id="energyBox" style="display: none;">
+        <label for="energyFilter">Energy</label>
+        <select class="form-control" id="energyFilter">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Progression</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+        <button class="btn btn-primary btn-sm" onclick="toggleHideElement('costBox')">Cost</button>
+
+        <div id="costBox" style="display: none;">
+          <label for="costFilter">Cost(in dollars)</label>
+          <div class="input-group mb-3">
+              <input id="costFilter" type="text" class="form-control" placeholder="e.g. 2">
+          </div>
+        </div>
     </div>
 
+    <div class="form-group">
+      <button class="btn btn-primary btn-sm" onclick="toggleHideElement('progressionBox')">Progression</button>
+
+      <div id="progressionBox" style="display: none;">
+        <label for="progressionFilter">Progression</label>
+        <select class="form-control" id="progressionFilter">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-sm" onclick="toggleHideElement('multiplePartnersBox')">Multiple Partners</button>
+    
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+      <div id="multiplePartnersBox" style="display: none;">
+        <input class="form-check-input" type="checkbox" value="" id="multiplePartnersFilter">
         <label class="form-check-label" for="defaultCheck2">
           Multiple Partners
         </label>
+      </div>
     </div>
 
     <div style="display: flex; justify-content: flex-end;">
-      <button type="button" class="btn btn-primary btn-lg" onclick="yo(this)">Get Stuff</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="clearTableRows(); renderTasks()">Apply Filters</button>
     </div>
-  </form> -->
+  </form>
 
 
-  <form id="submit-form" style="padding: 0 25rem;" action="">
+  <form id="submit-form" action="">
     <h1 style="text-align: center; margin: 0 auto;">
       Submit Form
     </h1>
@@ -134,9 +242,9 @@
 
     <div class="form-group">
       <label for="time">Time</label>
-        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-            <input id="time" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"/>
-            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+        <div class="input-group date" id="timepickerSUBMIT" data-target-input="nearest">
+            <input id="time" type="text" class="form-control datetimepicker-input" data-target="#timepickerSUBMIT"/>
+            <div class="input-group-append" data-target="#timepickerSUBMIT" data-toggle="datetimepicker">
                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
             </div>
         </div>
@@ -144,9 +252,9 @@
     
     <div class="form-group">
       <label for="day">Day</label>
-      <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-          <input id="day" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
-          <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+      <div class="input-group date" id="datepickerSUBMIT" data-target-input="nearest">
+          <input id="day" type="text" class="form-control datetimepicker-input" data-target="#datepickerSUBMIT"/>
+          <div class="input-group-append" data-target="#datepickerSUBMIT" data-toggle="datetimepicker">
               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
       </div>
@@ -186,25 +294,40 @@
     </div>
 
     <div style="display: flex; justify-content: flex-end;">
-      <button type="button" class="btn btn-primary btn-lg" onclick="submitTask(getFields());">Submit Task</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="submitForm();">Submit Task</button>
     </div>
   </form>
+  </div>
 
   
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="./js/filter.js" ></script>
+  <script src="./js/validation.js" ></script>
   <script src="./js/form.js" ></script>
+  <script src="./js/renderTasks.js" ></script>
   <script type="text/javascript">
     $(function () {
-        $('#datetimepicker3').datetimepicker({
+        $('#startDate').datetimepicker({
+            format: 'L'
+        });
+        $('#endDate').datetimepicker({
+            format: 'L'
+        });
+        $('#datepickerSUBMIT').datetimepicker({
+            format: 'L'
+        });
+        $('#startTime').datetimepicker({
             format: 'LT'
         });
-    });
-    $(function () {
-        $('#datetimepicker4').datetimepicker({
-            format: 'L'
+        $('#endTime').datetimepicker({
+            format: 'LT'
+        });
+        $('#timepickerSUBMIT').datetimepicker({
+            format: 'LT'
         });
     });
 
