@@ -226,11 +226,11 @@
       </div>
     </div>
 
-    <button class="btn btn-primary btn-sm" onclick="toggleHideElement('multiplePartnersBox')">Multiple Partners</button>
+    <div class="form-group">
+      <button class="btn btn-primary btn-sm" onclick="toggleHideElement('multiplePartnersBox')">Multiple Partners</button>
     
-    <div class="form-check">
       <div id="multiplePartnersBox" style="display: none;">
-        <input class="form-check-input" type="checkbox" value="" id="multiplePartnersFilter">
+        <label for="multiplePartnersFilter">Multiple Partners</label>
         <select id="multiplePartnersFilter" class="form-control">
           <option>Just for one</option>
           <option>The more the merrier</option>
@@ -327,8 +327,8 @@
       </select>
     </div>
 
-    <div class="form-check">
-      <label class="form-check-label" for="multiplePartners">
+    <div class="form-group">
+      <label for="multiplePartners">
         Multiple Partners
       </label>
       <select id="multiplePartners" class="form-control">

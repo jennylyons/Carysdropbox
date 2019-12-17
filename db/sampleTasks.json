@@ -7,4 +7,24 @@
   "cost": "$",
   "progression": "Easy",
   "multiplePartners": "The more the merrier"
+},
+{
+  "name": "More Fun",
+  "duration": "2-4 Hours",
+  "time": "Night",
+  "day": "Weekday/Weeknight",
+  "energy": "Intense",
+  "cost": "$$",
+  "progression": "Easy",
+  "multiplePartners": "The more the merrier"
+},
+{
+  "name": "Fun",
+  "duration": "All day",
+  "time": "Morning",
+  "day": "Weekday",
+  "energy": "Chill",
+  "cost": "$$$",
+  "progression": "Medium",
+  "multiplePartners": "Just for one"
 }]

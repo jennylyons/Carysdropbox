@@ -64,11 +64,10 @@ const getSubmitFields = () => {
   const time = _.get(document.getElementById('time'), 'value', '');
   const energy = _.get(document.getElementById('energy'), 'value', '');
   const progression = _.get(document.getElementById('progression'), 'value', '');
-  const multiplePartners = _.get(document.getElementById('multiplePartners'), 'checked', '');
-  let duration = Number(document.getElementById('duration').value);
-  let cost = Number(document.getElementById('cost').value);
-  duration = isNaN(Number(duration)) ? null : Number(duration);
-  cost = isNaN(Number(cost)) ? null : Number(cost);
+  const multiplePartners = _.get(document.getElementById('multiplePartners'), 'value', '');
+  const duration = _.get(document.getElementById('duration'), 'value', '');
+  const cost = _.get(document.getElementById('cost'), 'value', '');
+
 
   return { name, duration, time, day, energy, cost, progression, multiplePartners};
 }

@@ -4,7 +4,7 @@ const filterByName = (tasks, searchString) => tasks.filter(task => task.name && 
 
 // const filterByDate = (tasks, startDate, endDate) => tasks.filter(task => getIsBetweenDateRange(startDate, endDate, task.day));
 
-const filterPropertyMatch = (tasks, fields, property) => tasks.filter(task => task[property] === fields[property]);
+const filterPropertyMatch = (tasks, fields, property) => tasks.filter(task => task[property].toLowerCase() === fields[property].toLowerCase());
 
 // const getIsBetweenTimeRange = (startTime, endTime, taskTime) => {
 //   return getMinutes(startTime) <= getMinutes(taskTime) && getMinutes(taskTime) <= getMinutes(endTime);
