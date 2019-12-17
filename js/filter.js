@@ -1,3 +1,5 @@
+const filterByName = (tasks, searchString) => tasks.filter(task => task.name && task.name.toLowerCase().includes(searchString.toLowerCase()));
+
 const filterByTime = (tasks, startTime, endTime) => tasks.filter(task => getIsBetweenTimeRange(startTime, endTime, task.time));
 
 const filterByDate = (tasks, startDate, endDate) => tasks.filter(task => getIsBetweenDateRange(startDate, endDate, task.day));
@@ -5,7 +7,6 @@ const filterByDate = (tasks, startDate, endDate) => tasks.filter(task => getIsBe
 const filterPropertyMatch = (tasks, fields, property) => tasks.filter(task => task[property] === fields[property]);
 
 const getIsBetweenTimeRange = (startTime, endTime, taskTime) => {
-
   console.log('startTime: ', startTime)
   console.log('taskTime: ', taskTime)
   console.log('endTime: ', endTime)
@@ -24,11 +25,11 @@ const filterTasks = (tasks) => {
 
   console.log('fields in filter', fields)
   console.log('tasks in filter', tasks)
-
+debugger
   if (fields.name) {
-    tasks = filterPropertyMatch(tasks, fields, 'name');
+    tasks = filterByName(tasks, fields.name);
   }
-
+debugger
   if (fields.startTime && fields.endTime) {
     tasks = filterByTime(tasks, fields.startTime, fields.endTime);
   }
@@ -43,6 +44,10 @@ const filterTasks = (tasks) => {
 
   if (fields.energy) {
     tasks = filterPropertyMatch(tasks, fields, 'energy');
+  }
+
+  if (fields.cost) {
+    tasks = filterPropertyMatch(tasks, fields, 'cost');
   }
 
   if (fields.progression) {

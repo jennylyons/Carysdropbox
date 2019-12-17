@@ -87,7 +87,7 @@
     </div>
 
       
-  <form id="get-form" action="">
+  <form id="get-form" action="" onSubmit="return false;">
     <h3 style="text-align:left; margin-bottom: 2rem;">
       Filters
     </h3>
@@ -221,7 +221,7 @@
   </form>
 
 
-  <form id="submit-form" action="">
+  <form id="submit-form" action="" onSubmit="return false;">
     <h1 style="text-align: center; margin: 0 auto;">
       Submit Form
     </h1>
@@ -331,7 +331,7 @@
         });
     });
 
-    showForm('get-form')
+    showForm('submit-form')
     renderTasks();
 </script>
 </body>
