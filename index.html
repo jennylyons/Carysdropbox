@@ -107,10 +107,14 @@
       <button class="btn btn-primary btn-sm" onclick="toggleHideElement('durationBox')">Duration</button>
 
       <div id="durationBox" style="display: none;">
-        <label for="exampleFormControlSelect1">Duration(in hours)</label>
-        <div class="input-group mb-3">
-          <input id="durationFilter" type="text" class="form-control" placeholder="e.g. 2">
-        </div>
+        <label for="durationFilter">Duration</label>
+        <select id="durationFilter" class="form-control">
+            <option>1 hour</option>
+            <option>2-4 hours</option>
+            <option>5-6 hours</option>
+            <option>Whole Day</option>
+            <option>Multiple Days</option>
+          </select>
       </div>
     </div>
 
@@ -118,8 +122,17 @@
       <button class="btn btn-primary btn-sm" onclick="toggleHideElement('timeBox')">Time</button>
 
       <div id="timeBox" style="display: none;">
-        <label for="exampleFormControlSelect1">Time</label>
-        <div class="layout-row layout-align-space-between-center">
+        <label for="timeFilter">Time</label>
+
+        <select id="timeFilter" class="form-control">
+          <option>Morning</option>
+          <option>Midday</option>
+          <option>Evening</option>
+          <option>Night</option>
+        </select>
+
+        <!-- If you want to use real timespans, uncomment this code -->
+        <!-- <div class="layout-row layout-align-space-between-center">
           <div class="input-group date" id="startTime" data-target-input="nearest">
               <input id="startTimeFilter" type="text" class="form-control datetimepicker-input" data-target="#startTime"/>
               <div class="input-group-append" data-target="#startTime" data-toggle="datetimepicker">
@@ -135,7 +148,7 @@
                   <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
               </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     
@@ -143,9 +156,16 @@
       <button class="btn btn-primary btn-sm" onclick="toggleHideElement('dayBox')">Day</button>
 
       <div id="dayBox" style="display: none;">
-        <label for="startDate">Day</label>
+        <label for="dayFilter">Day</label>
+
+        <select id="dayFilter" class="form-control">
+          <option>Weeknight</option>
+          <option>Weekend</option>
+          <option>Weeknight/Weekend</option>
+        </select>
         
-        <div class="layout-row layout-align-space-between-center">
+        <!-- If you want to use real day spans, uncomment this code -->
+        <!-- <div class="layout-row layout-align-space-between-center">
           <div class="input-group date" id="startDate" data-target-input="nearest">
               <input id="startDateFilter" type="text" class="form-control datetimepicker-input" data-target="#startDate"/>
               <div class="input-group-append" data-target="#startDate" data-toggle="datetimepicker">
@@ -161,7 +181,7 @@
                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -170,11 +190,11 @@
 
       <div id="energyBox" style="display: none;">
         <label for="energyFilter">Energy</label>
-        <select class="form-control" id="energyFilter">
-          <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
-        </select>
+        <select id="energyFilter" class="form-control">
+            <option>Chill</option>
+            <option>Adventurous</option>
+            <option>Intense</option>
+          </select>
       </div>
     </div>
 
@@ -182,10 +202,14 @@
         <button class="btn btn-primary btn-sm" onclick="toggleHideElement('costBox')">Cost</button>
 
         <div id="costBox" style="display: none;">
-          <label for="costFilter">Cost(in dollars)</label>
-          <div class="input-group mb-3">
-              <input id="costFilter" type="text" class="form-control" placeholder="e.g. 2">
-          </div>
+          <label for="costFilter">Cost</label>
+          <select id="costFilter" class="form-control">
+              <option>Free</option>
+              <option>$</option>
+              <option>$$</option>
+              <option>$$$</option>
+              <option>$$$$</option>
+            </select>
         </div>
     </div>
 
@@ -194,12 +218,10 @@
 
       <div id="progressionBox" style="display: none;">
         <label for="progressionFilter">Progression</label>
-        <select class="form-control" id="progressionFilter">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <select id="progressionFilter" class="form-control">
+          <option>Easy</option>
+          <option>Medium</option>
+          <option>Advanced</option>
         </select>
       </div>
     </div>
@@ -209,9 +231,10 @@
     <div class="form-check">
       <div id="multiplePartnersBox" style="display: none;">
         <input class="form-check-input" type="checkbox" value="" id="multiplePartnersFilter">
-        <label class="form-check-label" for="defaultCheck2">
-          Multiple Partners
-        </label>
+        <select id="multiplePartnersFilter" class="form-control">
+          <option>Just for one</option>
+          <option>The more the merrier</option>
+        </select>
       </div>
     </div>
 
@@ -234,63 +257,84 @@
     </div>
 
     <div class="form-group">
-      <label for="duration">Duration(in hours)</label>
-      <div class="input-group mb-3">
-        <input id="duration" type="text" class="form-control" placeholder="e.g. 2">
-      </div>
+      <label for="duration">Duration</label>
+      <select id="duration" class="form-control">
+          <option>1 hour</option>
+          <option>2-4 hours</option>
+          <option>5-6 hours</option>
+          <option>Whole Day</option>
+          <option>Multiple Days</option>
+        </select>
     </div>
 
     <div class="form-group">
       <label for="time">Time</label>
-        <div class="input-group date" id="timepickerSUBMIT" data-target-input="nearest">
+      <select id="time" class="form-control">
+        <option>Morning</option>
+        <option>Midday</option>
+        <option>Evening</option>
+        <option>Night</option>
+      </select>
+        <!-- <div class="input-group date" id="timepickerSUBMIT" data-target-input="nearest">
             <input id="time" type="text" class="form-control datetimepicker-input" data-target="#timepickerSUBMIT"/>
             <div class="input-group-append" data-target="#timepickerSUBMIT" data-toggle="datetimepicker">
                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
             </div>
-        </div>
+        </div> -->
     </div>
     
     <div class="form-group">
       <label for="day">Day</label>
-      <div class="input-group date" id="datepickerSUBMIT" data-target-input="nearest">
+      <select id="day" class="form-control">
+        <option>Weeknight</option>
+        <option>Weekend</option>
+        <option>Weeknight/Weekend</option>
+      </select>
+      <!-- <div class="input-group date" id="datepickerSUBMIT" data-target-input="nearest">
           <input id="day" type="text" class="form-control datetimepicker-input" data-target="#datepickerSUBMIT"/>
           <div class="input-group-append" data-target="#datepickerSUBMIT" data-toggle="datetimepicker">
               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="form-group">
       <label for="energy">Energy</label>
       <select id="energy" class="form-control">
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
+        <option>Chill</option>
+        <option>Adventurous</option>
+        <option>Intense</option>
       </select>
     </div>
+
     <div class="form-group">
-      <label for="cost">Cost(in dollars)</label>
-      <div class="input-group mb-3">
-          <input id="cost" type="text" class="form-control" placeholder="e.g. 2">
-      </div>
+      <label for="cost">Cost</label>
+      <select id="cost" class="form-control">
+        <option>Free</option>
+        <option>$</option>
+        <option>$$</option>
+        <option>$$$</option>
+        <option>$$$$</option>
+      </select>
     </div>
 
     <div class="form-group">
       <label for="exampleFormControlSelect1">Progression</label>
       <select id="progression" class="form-control">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option>Easy</option>
+        <option>Medium</option>
+        <option>Advanced</option>
       </select>
     </div>
 
     <div class="form-check">
-        <input id="multiplePartners" class="form-check-input" type="checkbox" value="">
-        <label class="form-check-label" for="multiplePartners">
-          Multiple Partners
-        </label>
+      <label class="form-check-label" for="multiplePartners">
+        Multiple Partners
+      </label>
+      <select id="multiplePartners" class="form-control">
+        <option>Just for one</option>
+        <option>The more the merrier</option>
+      </select>
     </div>
 
     <div style="display: flex; justify-content: flex-end;">
@@ -310,26 +354,27 @@
   <script src="./js/form.js" ></script>
   <script src="./js/renderTasks.js" ></script>
   <script type="text/javascript">
-    $(function () {
-        $('#startDate').datetimepicker({
-            format: 'L'
-        });
-        $('#endDate').datetimepicker({
-            format: 'L'
-        });
-        $('#datepickerSUBMIT').datetimepicker({
-            format: 'L'
-        });
-        $('#startTime').datetimepicker({
-            format: 'LT'
-        });
-        $('#endTime').datetimepicker({
-            format: 'LT'
-        });
-        $('#timepickerSUBMIT').datetimepicker({
-            format: 'LT'
-        });
-    });
+    // if you want real times/dates use this code belowm
+    // $(function () {
+    //     $('#startDate').datetimepicker({
+    //         format: 'L'
+    //     });
+    //     $('#endDate').datetimepicker({
+    //         format: 'L'
+    //     });
+    //     $('#datepickerSUBMIT').datetimepicker({
+    //         format: 'L'
+    //     });
+    //     $('#startTime').datetimepicker({
+    //         format: 'LT'
+    //     });
+    //     $('#endTime').datetimepicker({
+    //         format: 'LT'
+    //     });
+    //     $('#timepickerSUBMIT').datetimepicker({
+    //         format: 'LT'
+    //     });
+    // });
 
     showForm('submit-form')
     renderTasks();

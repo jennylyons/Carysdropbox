@@ -25,8 +25,6 @@ async function getAllTasks() {
   const response = await fetch('http://localhost:3000/tasks');
   const tasks = await response.json();
 
-  tasks.forEach(task => task.multiple_partners = task.multiple_partners ? true : false);
-
   return tasks;
 }
 
@@ -47,19 +45,17 @@ async function submitTask(fields) {
 
 const getFilterFields = () => {
   const name = document.getElementById('nameBox').style.display === 'block' ? _.get(document.getElementById('nameFilter'), 'value') : null;
-  const startDate = document.getElementById('dayBox').style.display === 'block' ? _.get(document.getElementById('startDateFilter'), 'value') : null;
-  const endDate = document.getElementById('dayBox').style.display === 'block' ? _.get(document.getElementById('endDateFilter'), 'value') : null;
-  const startTime = document.getElementById('timeBox').style.display === 'block' ? _.get(document.getElementById('startTimeFilter'), 'value') : null;
-  const endTime = document.getElementById('timeBox').style.display === 'block' ? _.get(document.getElementById('endTimeFilter'), 'value') : null;
+  const day = document.getElementById('dayBox').style.display === 'block' ? _.get(document.getElementById('dayFilter'), 'value') : null;
+  // const endDate = document.getElementById('dayBox').style.display === 'block' ? _.get(document.getElementById('endDateFilter'), 'value') : null;
+  const time = document.getElementById('timeBox').style.display === 'block' ? _.get(document.getElementById('timeFilter'), 'value') : null;
+  // const endTime = document.getElementById('timeBox').style.display === 'block' ? _.get(document.getElementById('endTimeFilter'), 'value') : null;
   const energy = document.getElementById('energyBox').style.display === 'block' ? _.get(document.getElementById('energyFilter'), 'value') : null;
   const progression = document.getElementById('progressionBox').style.display === 'block' ? _.get(document.getElementById('progressionFilter'), 'value') : null;
-  const multiplePartners = document.getElementById('multiplePartnersBox').style.display === 'block' ? _.get(document.getElementById('multiplePartnersFilter'), 'checked') : null;
-  let duration = document.getElementById('durationBox').style.display === 'block' ? _.get(document.getElementById('durationFilter'), 'value') : null;
-  let cost = document.getElementById('costBox').style.display === 'block' ? _.get(document.getElementById('costFilter'), 'value') : null;
-  duration = duration !== undefined && duration !== null ? Number(duration) : null;
-  cost = cost !== undefined && cost !== null ? Number(cost) : null;
+  const multiplePartners = document.getElementById('multiplePartnersBox').style.display === 'block' ? _.get(document.getElementById('multiplePartnersFilter'), 'value') : null;
+  const duration = document.getElementById('durationBox').style.display === 'block' ? _.get(document.getElementById('durationFilter'), 'value') : null;
+  const cost = document.getElementById('costBox').style.display === 'block' ? _.get(document.getElementById('costFilter'), 'value') : null;
 
-  return { name, duration, startTime, endTime, startDate, endDate, energy, cost, progression, multiplePartners };
+  return { name, duration, day, time, energy, cost, progression, multiplePartners };
 }
 
 const getSubmitFields = () => {

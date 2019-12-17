@@ -5,28 +5,13 @@ const clearTableRows = () => {
   })
 };
 
-const getFormattedValue = (tuple) => {
-  const field = tuple[0];
-  const value = tuple[1];
-  
-  switch(field) {
-    case 'duration':
-      return value === 1 ? '1 hour' : `${value} hours`;
-    case 'cost':
-      return value === 0 ? 'Free' : `$${value}`;
-    case 'multiple_partners':
-      return value ? 'Yes' : 'No';
-    default:
-      return value;
-  }
-}
-
 const createTaskTableRow = (taskAreaBody, task) => {
   const row = document.createElement('tr');
+  console.log('task', task)
 
   Object.entries(task).forEach((tuple) => {
     const td = document.createElement('td');
-    td.textContent = getFormattedValue(tuple);
+    td.textContent = tuple[1]
     row.appendChild(td);
   });
 

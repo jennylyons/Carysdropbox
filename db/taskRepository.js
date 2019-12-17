@@ -10,13 +10,13 @@ class TaskRepository {
       CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(60),
-        duration INTEGER,
+        duration VARCHAR(30),
         time VARCHAR(30),
         day VARCHAR(30),
         energy VARCHAR(30),
-        cost INTEGER,
+        cost VARCHAR(30),
         progression VARCHAR(30),
-        multiple_partners INTEGER
+        multiple_partners VARCHAR(30)
     )`;
     return this.dao.run(sql);
   }
